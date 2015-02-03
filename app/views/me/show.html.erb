@@ -4,7 +4,23 @@
 
 <h2>Send a message</h2>
 <form>
-  <p><input name="text" name="phone" placeholder="e.g. 410-555-5555"/></p>
-  <p><textarea name="Message" rows="8" cols="40"></textarea></p>
+  <p>
+    <select name="carrier">
+      <option>Verizon</option>
+      <option>AT&T</option>
+      <option "sprint">Sprint</option>
+      <option "tmobile">T Mobile</option>
+    </select>
+  </p>
+  <p><input name="carrier" name="phone" placeholder="e.g. 410-555-5555"/></p>
+  <p><textarea name="message" rows="8" cols="40"></textarea></p>
   <p><input type="submit" value="Say Hello"/></p>
 </form>
+
+<p>Messages Sent: <%= @message_count %></p>
+
+<ul>
+  <% @messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+</ul>
