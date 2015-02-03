@@ -1,1 +1,10 @@
-<h1>Setting up a new file</h1>
+<% if @message.present? %>
+  <h5><%= @message %> </h5>
+<% end %>
+
+<h2>Send a message</h2>
+<form>
+  <p><input name="text" name="phone" placeholder="e.g. 410-555-5555"/></p>
+  <p><textarea name="Message" rows="8" cols="40"></textarea></p>
+  <p><input type="submit" value="Say Hello"/></p>
+</form>
