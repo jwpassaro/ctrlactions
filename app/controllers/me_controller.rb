@@ -8,6 +8,19 @@ class MeController < ApplicationController
       @messages = []
     end
 
+    account_sid = 'AC4a20cae69e414568a87f0865f06b8601'
+    auth_token = '09e18f4449711a906b1eed06d0d2d2db'
+
+    @client = Twilio::REST::Client.new
+    ('AC4a20cae69e414568a87f0865f06b8601',
+    '09e18f4449711a906b1eed06d0d2d2db') #account_sid, auth_token
+
+    @client.messages.create(
+    from: '+17654055734',
+    to: '+14438003292',
+    body: params[:message]
+    )
+
     #call the method of send a message
 
     #send_awesome_text_message(params[:phone], params[:message])
