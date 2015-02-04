@@ -1,26 +1,26 @@
-<% if @message.present? %>
-  <h5><%= @message %> </h5>
+<% if params[:message].present? %>
+  <h5>Sent message: <%= params[:message] %> </h5>
 <% end %>
 
 <h2>Send a message</h2>
 <form>
-  <p>
+<!--  <p>
     <select name="carrier">
       <option>Verizon</option>
       <option>AT&T</option>
       <option "sprint">Sprint</option>
       <option "tmobile">T Mobile</option>
     </select>
-  </p>
-  <p><input name="carrier" name="phone" placeholder="e.g. 410-555-5555"/></p>
+  </p> -->
+  <p><input type="text" name="phone" placeholder="e.g. 410-555-5555"/></p>
   <p><textarea name="message" rows="8" cols="40"></textarea></p>
-  <p><input type="submit" value="Say Hello"/></p>
+  <p><input type="submit" value="Send!"/></p>
 </form>
 
-<p>Messages Sent: <%= @message_count %></p>
+<p>Messages Sent: <%= session[:message_count] %></p>
 
 <ul>
-  <% @messages.each do |message| %>
+  <% session[:messages].each do |message| %>
     <li><%= message %></li>
   <% end %>
 </ul>
